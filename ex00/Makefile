@@ -2,12 +2,12 @@ NAME = BraiiiiiiinnnzzzZ
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp
+SRC = main.cpp Zombie.cpp utils.cpp newZombie.cpp
 
 CC = c++
 
 all:
-	$(CC) $(FLAGS) $(SRC) -o $(NAME)
+	$(CC)  $(SRC) -o $(NAME)
 
 # clean:
 # 	rm -rf $(OBJ)
