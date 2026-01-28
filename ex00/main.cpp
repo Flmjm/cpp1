@@ -1,7 +1,33 @@
 #include <iostream>
 #include <string>
 #include "Zombie.hpp"
-#include "utils.hpp"
+#include <unistd.h>
+
+void randomChump( std::string name );
+Zombie* newZombie( std::string name );
+
+bool quit(std::string usrType)
+{
+    if (usrType == "q" || usrType == "Q")
+        return true;
+    return false;
+}
+
+void printSlow(std::string str, std::string speed)
+{
+    int spd = 50000;
+    if (speed == "fast")
+        spd = 10000;
+    else if (speed == "slow")
+        spd = 100000;
+    else if (speed == "vslow")
+        spd = 500000;
+    for (size_t i = 0; i < str.size(); i++)
+    {    
+        std::cout << str[i] << std::flush;
+        usleep(spd);
+    }
+}
 
 int main()
 {
