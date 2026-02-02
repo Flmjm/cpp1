@@ -1,23 +1,30 @@
 NAME = BraiiiiiiinnnzzzZ
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
-
-SRC = main.cpp Zombie.cpp utils.cpp newZombie.cpp
-
 CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-all:
-	$(CC)  $(SRC) -o $(NAME)
+SRCS =  main.cpp Zombie.cpp randomChump.cpp  newZombie.cpp
+OBJS = $(SRCS:.cpp=.o)
 
-# clean:
-# 	rm -rf $(OBJ)
+RM = rm -rf
 
-# fclean:
-# 	clean
-# 	rm -rf $(NAME)
+all: ${NAME}
 
-# re:
-# 	fclean
-# 	all
+
+${NAME}: ${OBJS}
+	@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+
+%.o: %.cpp
+	@$(CC) -c $< -o $@
+
+clean:
+	@${RM} ${OBJS}
+
+fclean: clean
+	@${RM} ${NAME}
+
+re: fclean all
+
+.PHONY: all clean fclean re
 
 

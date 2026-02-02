@@ -1,9 +1,9 @@
-NAME = HI-THIS-IS-BRAIN
+NAME = Harl-2.0
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS =  main.cpp
+SRCS =  main.cpp Harl.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 RM = rm -rf
@@ -26,5 +26,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
-
