@@ -23,7 +23,7 @@ void printSlow(std::string str, std::string speed)
     else if (speed == "vslow")
         spd = 500000;
     for (size_t i = 0; i < str.size(); i++)
-    {    
+    {
         std::cout << str[i] << std::flush;
         usleep(spd);
     }
@@ -32,6 +32,7 @@ void printSlow(std::string str, std::string speed)
 int main()
 {
 	Zombie *theForgetten = NULL;
+	int check = false;
 
 	printSlow("Welcome to Zlab", "default");
 
@@ -52,7 +53,11 @@ int main()
 
 		std::cout << std::endl;
 
-		std::cin >> usrType;
+		if (!std::getline(std::cin, usrType))
+		{
+			check = true;
+			break ;
+		}
 
 		std::cout << std::endl;
 		std::cout << std::endl;
@@ -60,14 +65,17 @@ int main()
 		if (quit(usrType))
 			break ;
 		else if (usrType == "1")
-		{	
+		{
 			std::string tmp;
 
 			printSlow("whats name for the new one come ?", "default");
 			std::cout << std::endl;
 
-			std::cin.ignore();
-			std::getline(std::cin, tmp);
+			if (!std::getline(std::cin, tmp))
+			{
+				check = true;
+				break ;
+			}
 
 			std::cout << std::endl;
 			std::cout << std::endl;
@@ -88,8 +96,11 @@ int main()
 			printSlow("whats name for the new one come ?", "default");
 			std::cout << std::endl;
 
-			std::cin.ignore();
-			std::getline(std::cin, tmp);
+			if (!std::getline(std::cin, tmp))
+			{
+				check = true;
+				break ;
+			}
 
 			std::cout << std::endl;
 			std::cout << std::endl;
@@ -99,7 +110,7 @@ int main()
 		}
 		else if (usrType == "3")
 		{
-			
+
 			if (theForgetten)
 			{
 				delete theForgetten;
@@ -114,13 +125,12 @@ int main()
 
 	if (theForgetten)
 	{
-		while (1)
+		while (!check && 1)
 		{
 			std::string usrType;
 
 			printSlow("Ho, the lab is not empty, i need you'r confirmation to kill our Zombheap (q or Q to kill)", "default");
 
-			std::cin >> usrType;
 			if (quit(usrType))
 				break ;
 

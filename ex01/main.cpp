@@ -12,19 +12,21 @@ int main()
         std::string name;
 
         std::cout << "zLab : type numbers to create an horde of Z" << std::endl;
-        std::cin >> usrType;
+        if (!(std::cin >> usrType))
+			break ;
         std::cout << "type her name" << std::endl;
-        std::cin >> name;
+		if (!(std::cin >> name))
+			break ;
 
         Zombie *horde = NULL;
         horde = zombieHorde(usrType, name);
 
         std::cout << std::endl;
-        
+
         for (int i = 0; i < usrType; i++)
             horde[i].announce();
 
-        delete[] horde;       
+        delete[] horde;
 
     }
 }
