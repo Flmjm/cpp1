@@ -13,28 +13,12 @@ bool quit(std::string usrType)
     return false;
 }
 
-void printSlow(std::string str, std::string speed)
-{
-    int spd = 50000;
-    if (speed == "fast")
-        spd = 10000;
-    else if (speed == "slow")
-        spd = 100000;
-    else if (speed == "vslow")
-        spd = 500000;
-    for (size_t i = 0; i < str.size(); i++)
-    {
-        std::cout << str[i] << std::flush;
-        usleep(spd);
-    }
-}
-
 int main()
 {
 	Zombie *theForgetten = NULL;
 	int check = false;
 
-	printSlow("Welcome to Zlab", "default");
+	std::cout << "Welcome to Zlab" << std::endl;
 
 	std::cout << std::endl;
 	std::cout << std::endl;
@@ -47,11 +31,9 @@ int main()
 		std::cout << std::endl;
 
 		if (theForgetten)
-			printSlow("zLab : Q(quit) 1(randomChump) 2(newZombie) 3(destruct the zombie on heap)", "fast");
+			std::cout << "zLab : Q(quit) 1(randomChump) 2(newZombie) 3(destruct the zombie on heap)" << std::endl;
 		else
-			printSlow("zLab : Q(quit) 1(randomChump) 2(newZombie)", "fast");
-
-		std::cout << std::endl;
+			std::cout << "zLab : Q(quit) 1(randomChump) 2(newZombie)" << std::endl;
 
 		if (!std::getline(std::cin, usrType))
 		{
@@ -68,8 +50,7 @@ int main()
 		{
 			std::string tmp;
 
-			printSlow("whats name for the new one come ?", "default");
-			std::cout << std::endl;
+			std::cout << "whats name for the new one come ?" << std::endl;
 
 			if (!std::getline(std::cin, tmp))
 			{
@@ -88,13 +69,11 @@ int main()
 
 			if (theForgetten)
 			{
-				printSlow("We already have too much Zombie in the lab, supress one before", "default");
-				std::cout << std::endl;
+				std::cout << "We already have too much Zombie in the lab, supress one before" << std::endl;
 				continue ;
 			}
 
-			printSlow("whats name for the new one come ?", "default");
-			std::cout << std::endl;
+			std::cout << "whats name for the new one come ?" << std::endl;
 
 			if (!std::getline(std::cin, tmp))
 			{
@@ -116,9 +95,8 @@ int main()
 				delete theForgetten;
 				theForgetten = NULL;
 				std::cout << std::endl;
-				printSlow("Oh, yes ... it hurts", "slow");
+				std::cout << "Oh, yes ... it hurts" << std::endl;
 			}
-			std::cout << std::endl;
 		}
 
 	}
@@ -129,8 +107,9 @@ int main()
 		{
 			std::string usrType;
 
-			printSlow("Ho, the lab is not empty, i need you'r confirmation to kill our Zombheap (q or Q to kill)", "default");
+			std::cout << "Ho, the lab is not empty, i need you'r confirmation to kill our Zombheap (q or Q to kill)" << std::endl;
 
+			std::getline(std::cin, usrType);
 			if (quit(usrType))
 				break ;
 

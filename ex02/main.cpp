@@ -1,114 +1,86 @@
 #include <iostream>
 #include <string>
 #include <unistd.h>
-
-void printSlow(std::string str, std::string speed)
-{
-    int spd = 50000;
-    if (speed == "fast")
-        spd = 10000;
-    else if (speed == "slow")
-        spd = 100000;
-    else if (speed == "vslow")
-        spd = 500000;
-    for (size_t i = 0; i < str.size(); i++)
-    {    
-        std::cout << str[i] << std::flush;
-        usleep(spd);
-    }
-}
+#include "Colors.hpp"
 
 int main()
 {
-    printSlow("Ok, for all mysterye we have its resolution", "default");
-    std::cout << std::endl;
-    std::cout << std::endl;
-    printSlow("First,", "default");
-    printSlow(" we need a string so init one like this :", "default");
-    std::cout << std::endl;
-    std::cout << std::endl;
-    
+    std::cout << "we have a string init like this :" <<std::endl;
+
     std::string myString = "HI THIS IS BRAIN";
-    printSlow("std::string myString = \"HI THIS IS BRAIN\";", "slow");
-    std::cout << std::endl;
-    std::cout << std::endl;
-    
-    printSlow("Ok, then, we define a reference to this string :", "slow");
-    std::cout << std::endl;
-    std::cout << std::endl;
-    std::string &stringREF = myString;
-    printSlow("std::string &stringREF = myString;", "slow");
-    std::cout << std::endl;
-    std::cout << std::endl;
+
+    std::cout << BOLDBLUE << "std::string myString = \"HI THIS IS BRAIN\";" << RESET << std::endl;
     std::cout << std::endl;
 
-    printSlow("So, for the moment, we have :", "default");
-    std::cout << std::endl;
-    std::cout << "myString      -->  " << myString << std::endl;
-    std::cout << "stringREF     -->  " << stringREF << std::endl;
-    std::cout << std::endl;
-    std::cout << "&myString     -->  " << &myString << std::endl;
-    std::cout << "&stringREF    -->  " << &stringREF << std::endl;
-    std::cout << std::endl;
+    std::cout << "we define a reference to this string :" << std::endl;
+
+	std::string &stringREF = myString;
+
+    std::cout << BOLDBLUE << "std::string &stringREF = myString;" << RESET << std::endl;
     std::cout << std::endl;
 
-    printSlow("After this, we can see a pointer", "default");
+    std::cout << "So, we have :" << std::endl;
+    std::cout << "myString      -->  " << GREEN << myString << RESET << std::endl;
+    std::cout << "stringREF     -->  " << GREEN << stringREF << RESET << std::endl;
+	std::cout << std::endl;
+
+	std::cout << BOLDCYAN << "&" << RESET << "myString     -->  " << RED << &myString << RESET << std::endl;
+    std::cout << BOLDCYAN << "&" << RESET << "stringREF    -->  " << RED << &stringREF << RESET << std::endl;
+	std::cout << std::endl;
     std::cout << std::endl;
-    std::cout << std::endl;
-    std::string *stringPTR = &myString;
-    printSlow("std::string *stringPTR = &myString;", "slow");
-    std::cout << std::endl;
+
+    std::cout << "After this, we can see a pointer" << std::endl;
+
+	std::string *stringPTR = &myString;
+
+    std::cout << BOLDBLUE << "std::string *stringPTR = &myString;" << RESET << std::endl;
     std::cout << std::endl;
 
 
-    printSlow("So, finally we have :", "default");
+    std::cout << "So, finally we have :" << std::endl;
     std::cout << std::endl;
+    std::cout << "myString      -->  " << GREEN << myString << RESET << std::endl;
+    std::cout << "stringREF     -->  " << GREEN << stringREF << RESET << std::endl;
+    std::cout << "stringPTR     -->  " << RED << stringPTR << RESET << std::endl;
+	std::cout << BOLDMAGENTA << "*" << RESET << "stringPTR     -->  " << GREEN << *stringPTR << RESET << std::endl;
     std::cout << std::endl;
-    std::cout << "myString      -->  " << myString << std::endl;
-    std::cout << "stringREF     -->  " << stringREF << std::endl;
-    std::cout << "stringPTR     -->  " << stringPTR << std::endl;
-    std::cout << std::endl;
-    std::cout << "&myString     -->  " << &myString << std::endl;
-    std::cout << "&stringREF    -->  " << &stringREF << std::endl;
-    std::cout << "&stringREF     -->  " << &stringREF << std::endl;
-    std::cout << std::endl;
-    std::cout << std::endl;
-
-    printSlow("We can use for exemple :", "default");
-    myString.append("EXEMPLE");
-    printSlow("myString.append(\"EXEMPLE\");", "slow");
-    std::cout << std::endl;
-    std::cout << std::endl;
-    
-    printSlow("And we have :", "default");
-    std::cout << std::endl;
-    std::cout << std::endl;
-    std::cout << "myString      -->  " << myString << std::endl;
-    std::cout << "stringREF     -->  " << stringREF << std::endl;
-    std::cout << "stringPTR     -->  " << stringPTR << std::endl;
-    std::cout << std::endl;
-    std::cout << "&myString     -->  " << &myString << std::endl;
-    std::cout << "&stringREF    -->  " << &stringREF << std::endl;
-    std::cout << "&stringREF     -->  " << &stringREF << std::endl;
+    std::cout << BOLDCYAN << "&" << RESET << "myString     -->  " << RED << &myString << RESET << std::endl;
+    std::cout << BOLDCYAN << "&" << RESET << "stringREF    -->  " << RED << &stringREF << RESET << std::endl;
+    std::cout << BOLDCYAN << "&" << RESET << "stringPTR     -->  " << YELLOW << &stringPTR << RESET << std::endl;
     std::cout << std::endl;
     std::cout << std::endl;
 
-    printSlow("and :", "default");
+    std::cout << "We can use for exemple :" << std::endl;
+    myString.append(" EXEMPLE");
+    std::cout << BOLDBLUE << "myString.append(\" EXEMPLE\");" << RESET << std::endl;
+
+    std::cout << "And we have :" << std::endl;
+    std::cout << std::endl;
+    std::cout << "myString      -->  " << GREEN << myString << RESET << std::endl;
+    std::cout << "stringREF     -->  " << GREEN << stringREF << RESET << std::endl;
+	std::cout << "stringPTR     -->  " << RED << stringPTR << RESET << std::endl;
+    std::cout << BOLDMAGENTA << "*" << RESET << "stringPTR     -->  " << GREEN << *stringPTR << RESET << std::endl;
+    std::cout << std::endl;
+    std::cout << BOLDCYAN << "&" << RESET << "myString     -->  " << RED << &myString << RESET << std::endl;
+    std::cout << BOLDCYAN << "&" << RESET << "stringREF    -->  " << RED << &stringREF << RESET << std::endl;
+    std::cout << BOLDCYAN << "&" << RESET << "stringPTR     -->  " << YELLOW << &stringPTR << RESET << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+
+    std::cout << "and :" << std::endl;
     stringPTR->erase(10);
-    printSlow("stringPTR->erase(10);", "slow");
-    std::cout << std::endl;
-    std::cout << std::endl;
+    std::cout << BOLDBLUE << "stringPTR->erase(10);" << RESET << std::endl;
 
-    printSlow("And we have :", "default");
+    std::cout << "And we have :" << std::endl;
     std::cout << std::endl;
+    std::cout << "myString      -->  " << GREEN << myString << RESET << std::endl;
+    std::cout << "stringREF     -->  " << GREEN << stringREF << RESET << std::endl;
+    std::cout << "stringPTR     -->  " << RED << stringPTR << RESET << std::endl;
+	std::cout << BOLDMAGENTA << "*" << RESET << "stringPTR     -->  " << GREEN << *stringPTR << RESET << std::endl;
     std::cout << std::endl;
-    std::cout << "myString      -->  " << myString << std::endl;
-    std::cout << "stringREF     -->  " << stringREF << std::endl;
-    std::cout << "stringPTR     -->  " << stringPTR << std::endl;
-    std::cout << std::endl;
-    std::cout << "&myString     -->  " << &myString << std::endl;
-    std::cout << "&stringREF    -->  " << &stringREF << std::endl;
-    std::cout << "&stringREF     -->  " << &stringREF << std::endl;
+    std::cout << BOLDCYAN << "&" << RESET << "myString     -->  " << RED << &myString << RESET << std::endl;
+    std::cout << BOLDCYAN << "&" << RESET << "stringREF    -->  " << RED << &stringREF << RESET << std::endl;
+    std::cout << BOLDCYAN << "&" << RESET << "stringPTR     -->  " << YELLOW << &stringPTR << RESET << std::endl;
     std::cout << std::endl;
     std::cout << std::endl;
 

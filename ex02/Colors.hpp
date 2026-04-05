@@ -1,8 +1,5 @@
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-
-#include <iostream>
-#include <string>
+#ifndef COLORS_HPP
+#define COLORS_HPP
 
 #define RESET   "\033[0m"
 #define BLACK   "\033[30m"      /* Black */
@@ -21,18 +18,5 @@
 #define BOLDMAGENTA "\033[1m\033[35m"      /* Bold Magenta */
 #define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
-
-class Zombie
-{
-	public:
-
-		Zombie(std::string name);
-		~Zombie();
-		void announce( void );
-
-	private:
-
-		std::string _name;
-};
 
 #endif

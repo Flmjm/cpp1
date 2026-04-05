@@ -13,7 +13,7 @@ HumanB::~HumanB()
 void	HumanB::attack()
 {
 	if (_weaponType)
-		std::cout << _name << " attacks with their " << _weaponType->getType() << std::endl;
+		std::cout << BOLDYELLOW << _name << RESET << " attacks with their " << RED << _weaponType->getType() <<  RESET << std::endl;
 }
 
 void HumanB::setWeapon(Weapon& newWeapon)
