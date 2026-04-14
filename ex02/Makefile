@@ -1,7 +1,7 @@
 NAME = HI-THIS-IS-BRAIN
 
-CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS =  main.cpp
 OBJS = $(SRCS:.cpp=.o)
@@ -12,10 +12,10 @@ all: ${NAME}
 
 
 ${NAME}: ${OBJS}
-	@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
+	@${CXX} ${CXXFLAGS} ${OBJS} -o ${NAME}
 
 %.o: %.cpp
-	@$(CC) -c $< -o $@
+	@$(CXX) ${CXXFLAGS} -c $< -o $@
 
 clean:
 	@${RM} ${OBJS}

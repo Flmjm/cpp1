@@ -13,14 +13,14 @@ int main(int argc,  char**argv)
 	std::string filename(argv[1]), needle(argv[2]), replace(argv[3]);
 	std::string lineRead;
 
-	std::ifstream fileOpen(filename);
+	std::ifstream fileOpen(filename.c_str());
 	if (!fileOpen)
 	{
 		std::cout << "Error, can't open " << filename << std::endl;
 		return 1;
 	}
 
-	std::ofstream fileReplace(filename + ".replace");
+	std::ofstream fileReplace((filename + ".replace").c_str());
 	if (!fileReplace)
 	{
 		std::cout << "Error, can't open " << filename + ".replace" << std::endl;
